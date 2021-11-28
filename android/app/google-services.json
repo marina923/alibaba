@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "834584649562",
+    "project_id": "amlakalibaba-756e6",
+    "storage_bucket": "amlakalibaba-756e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:834584649562:android:52f9544372e6493db75d63",
+        "android_client_info": {
+          "package_name": "com.example.amlak"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "834584649562-n20hpistc7jo024kjbl8k30jba2o5c72.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.amlak",
+            "certificate_hash": "298fe0707dd984549ed813f61a4c1c6b7a3ad88e"
+          }
+        },
+        {
+          "client_id": "834584649562-he356t552mbqvp5u7oag5jdjkino1tsa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAccT3siA0-qvpfmhneF8uuJ8j0ttdHW6I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "834584649562-he356t552mbqvp5u7oag5jdjkino1tsa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

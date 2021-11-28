@@ -62,11 +62,12 @@ class AppCubit extends Cubit<AppStates> {
 
   void getLowestPrice() {
     emit(AppGetLowestPriceLoadingState());
-    DioHelper.getData(url: 'v1/lowest_properties/1', query: {
-      'page': '1',
-    }).then((value) {
+    DioHelper.getData(
+      url: 'v1/lowest_properties/1?page=1',
+    ).then((value) {
       LowestPrice = value.data;
-      print(LowestPrice[0]["address"]);
+      print(value.statusCode);
+      print(LowestPrice[0]["content"]);
       emit(AppGetLowestPriceSuccessState());
     }).catchError((error) {
       emit(AppGetLowestPriceErrorState(error));
