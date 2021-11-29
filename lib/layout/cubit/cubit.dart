@@ -1,4 +1,4 @@
-import 'package:amlak/homePage.dart';
+import 'package:amlak/home_page.dart';
 import 'package:amlak/layout/cubit/states.dart';
 import 'package:amlak/modules/main/MainScreen.dart';
 import 'package:amlak/modules/realestate/RealEstateScreen.dart';
@@ -54,23 +54,40 @@ class AppCubit extends Cubit<AppStates> {
     SearchScreen(),
     SettingScreen(),
   ];
-  List<dynamic> LowestPrice = [];
+
   void changeBottomNavBar(int index) {
     currentIndex = index;
     emit(AppBottomNavState());
   }
 
+  List<dynamic> lowestPrice = [];
   void getLowestPrice() {
     emit(AppGetLowestPriceLoadingState());
     DioHelper.getData(
-      url: 'v1/lowest_properties/1?page=1',
+      url: 'wp-json/ml/v1/lowest_properties/1?page=1',
     ).then((value) {
-      LowestPrice = value.data;
-      print(value.statusCode);
-      print(LowestPrice[0]["content"]);
+      lowestPrice = value.data;
+      //print(value.statusCode);
+
       emit(AppGetLowestPriceSuccessState());
     }).catchError((error) {
       emit(AppGetLowestPriceErrorState(error));
+      print(error.toString());
+    });
+  }
+
+  List<dynamic> recent = [];
+  void getRecent() {
+    emit(AppGetRecentLoadingState());
+    DioHelper.getData(
+      url: 'wp-json/ml/v1/recent_properties/1?page=1',
+    ).then((value) {
+      recent = value.data;
+      //print(value.statusCode);
+      //print(recent[0]["type"]["name"]);
+      emit(AppGetRecentSuccessState());
+    }).catchError((error) {
+      emit(AppGetRecentErrorState(error));
       print(error.toString());
     });
   }

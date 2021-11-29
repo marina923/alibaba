@@ -1,12 +1,18 @@
 import 'package:amlak/layout/cubit/cubit.dart';
 import 'package:amlak/layout/cubit/states.dart';
+import 'package:amlak/modules/login/login_screen.dart';
 import 'package:amlak/modules/main/MainScreen.dart';
+import 'package:amlak/shared/network/remote/dio_helper.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'homePage.dart';
+import 'home_page.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  DioHelper.init();
   runApp(const MyApp());
 }
 
@@ -61,7 +67,7 @@ class MyApp extends StatelessWidget {
               //   buttonColor: Colors.blue.shade100,
               // ),
             ),
-            home: const MainScreen(),
+            home: LogInScreen(),
           );
         },
       ),

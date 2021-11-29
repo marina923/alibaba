@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 
 class DioHelper {
@@ -6,7 +5,7 @@ class DioHelper {
   static init() {
     dio = Dio(
       BaseOptions(
-        baseUrl: 'https://amlakalibaba.com/wp-json/ml/',
+        baseUrl: 'https://amlakalibaba.com/',
         receiveDataWhenStatusError: true,
       ),
     );

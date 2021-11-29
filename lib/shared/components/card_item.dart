@@ -29,13 +29,10 @@ class CardItem extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    return
-      //  Expanded(
-      //   child: SizedBox(
-      //     width: width * 0.4,
-      //     height: height * 0.47,
-      //     child:
-      Card(
+    return SizedBox(
+      width: width * 0.44,
+      height: height * 0.30,
+      child: Card(
         // margin: EdgeInsetsDirectional.only(
         //   start: width * 0.09,
         //   end: width * 0.09,
@@ -59,8 +56,8 @@ class CardItem extends StatelessWidget {
                     Radius.circular(width * 0.055),
                   ),
                   child: Image(
-                    image: AssetImage(mainImagePreview),
-                    fit: BoxFit.cover,
+                    image: NetworkImage(mainImagePreview),
+                    fit: BoxFit.fill,
                     height: height * 0.16,
                     width: width * 0.5,
                   ),
@@ -87,7 +84,7 @@ class CardItem extends StatelessWidget {
             ),
             //The bar which contain the realEstateName and realEstateSelling type
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
                   height: height * 0.033,
@@ -114,7 +111,7 @@ class CardItem extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: width * 0.28,
+                  width: width * 0.2,
                 ),
                 Text(
                   realEstateName,
@@ -123,9 +120,6 @@ class CardItem extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     fontSize: width * 0.038,
                   ),
-                ),
-                SizedBox(
-                  width: width * 0.0032,
                 ),
                 Container(
                   height: height * 0.033,
@@ -155,6 +149,7 @@ class CardItem extends StatelessWidget {
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   //Description of real estate
                   Text(
@@ -201,37 +196,37 @@ class CardItem extends StatelessWidget {
                           style: TextStyle(fontSize: width * 0.037),
                         ),
                       ),
-                      // SizedBox(
-                      //   width: width * 0.014,
-                      // ),
-                      // Image(
-                      //   image: const AssetImage(
-                      //     'assets/images/location.png',
-                      //   ),
-                      //   height: height * 0.0365,
-                      // ),
+                      SizedBox(
+                        width: width * 0.014,
+                      ),
+                      Image(
+                        image: const AssetImage(
+                          'assets/images/location.png',
+                        ),
+                        height: height * 0.0365,
+                      ),
                     ],
                   ),
                   SizedBox(
                     height: height * 0.013,
                   ),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  //   children: [
-                  //     IconWithTextWidget(
-                  //       imagePath: 'assets/images/bed.png',
-                  //       number: realEstateBedrooms,
-                  //     ),
-                  //     IconWithTextWidget(
-                  //       imagePath: 'assets/images/bath_icon.png',
-                  //       number: realEstateBathrooms,
-                  //     ),
-                  //     IconWithTextWidget(
-                  //       imagePath: 'assets/images/space.png',
-                  //       number: realEstateSize,
-                  //     ),
-                  //   ],
-                  // ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      IconWithTextWidget(
+                        imagePath: 'assets/images/bed.png',
+                        number: realEstateBedrooms,
+                      ),
+                      IconWithTextWidget(
+                        imagePath: 'assets/images/bath_icon.png',
+                        number: realEstateBathrooms,
+                      ),
+                      IconWithTextWidget(
+                        imagePath: 'assets/images/space.png',
+                        number: realEstateSize,
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
@@ -239,6 +234,7 @@ class CardItem extends StatelessWidget {
         ),
         //   ),
         // ),
-      );
+      ),
+    );
   }
 }

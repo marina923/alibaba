@@ -13,3 +13,13 @@ class AppGetLowestPriceErrorState extends AppStates {
 
   AppGetLowestPriceErrorState(this.Error);
 }
+
+class AppGetRecentSuccessState extends AppStates {}
+
+class AppGetRecentLoadingState extends AppStates {}
+
+class AppGetRecentErrorState extends AppStates {
+  final String Error;
+
+  AppGetRecentErrorState(this.Error);
+}
