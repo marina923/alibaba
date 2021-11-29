@@ -244,30 +244,27 @@ class HomePage extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: height * 0.49,
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: recentList.length,
-                        itemBuilder: (context, index) {
-                          return SizedBox(
-                            width: width * 0.493,
-                            child: CardItem(
-                              mainImagePreview: recentList[index]
-                                  [gi"featured_image"]["thumbnail"],
-                              realEstateName: recentList[index]["type"]["name"],
-                              realEstateSellingStatus: recentList[index]
-                                  ["status"],
-                              realEstateTitle: recentList[index]["title"],
-                              realEstatePrice: recentList[index]["price"],
-                              realEstateAddress: recentList[index]["address"],
-                              realEstateSize: recentList[index]["size"],
-                              realEstateBedrooms: recentList[index]["bedrooms"],
-                              realEstateBathrooms: recentList[index]
-                                  ["bathrooms"],
-                              onPressFavoriteButton: () {},
-                            ),
-                          );
-                        },
+                      height: height * 0.497,
+                      child: GridView.count(
+                        childAspectRatio: 2 / 4.2,
+                        crossAxisCount: 2,
+                        children: List.generate(
+                          recentList.length,
+                          (index) => CardItem(
+                            mainImagePreview: recentList[index]
+                                ["featured_image"]["thumbnail"],
+                            realEstateName: recentList[index]["type"]["name"],
+                            realEstateSellingStatus: recentList[index]
+                                ["status"],
+                            realEstateTitle: recentList[index]["title"],
+                            realEstatePrice: recentList[index]["price"],
+                            realEstateAddress: recentList[index]["address"],
+                            realEstateSize: recentList[index]["size"],
+                            realEstateBedrooms: recentList[index]["bedrooms"],
+                            realEstateBathrooms: recentList[index]["bathrooms"],
+                            onPressFavoriteButton: () {},
+                          ),
+                        ),
                       ),
                     ),
                   ],
